@@ -1,0 +1,102 @@
+:root {
+  --footerSubColor: #ff3d71;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #192038;
+  color: white;
+  width: 100%;
+  padding: 40px 0 20px;
+  margin-top: 20px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.footer hr {
+  width: 88%;
+}
+
+.footer ul li {
+  list-style-position: outside;
+}
+
+.footer ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+.footer ul li a:hover {
+  color: var(--footerSubColor);
+}
+
+.footer .mainFooter {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+}
+
+.footer .mainFooter h6 {
+  color: var(--footerSubColor);
+  font-size: 1.15rem;
+  font-weight: 300;
+}
+
+.footer .mainFooter hr {
+  margin: 10px 0;
+  border: 1.5px solid rgb(255, 255, 255);
+  outline: 0;
+}
+
+.footer .mainFooter .socialLogos {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .mainFooter .socialLogos li a {
+  font-size: 24px;
+}
+
+.footer .mainFooter .socialLogos li:nth-child(n) > a:hover {
+  color: rgb(36, 106, 237);
+}
+
+.footer .mainFooter .socialLogos li:nth-child(2) > a:hover {
+  color: var(--footerSubColor);
+}
+
+.footer .bottomFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  row-gap: 10px;
+}
+
+.footer .bottomFooter ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer .bottomFooter .copyrightRow {
+  font-size: 14px;
+  font-weight: 300;
+}
