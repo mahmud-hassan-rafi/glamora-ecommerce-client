@@ -1,6 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 main().catch((err) =>
   console.log("database connection denied for", err.message)
@@ -68,9 +71,7 @@ app.get("/api/products", async (req, res) => {
 
 // database connection
 async function main() {
-  await mongoose.connect(
-    "mongodb://rafi:rafi@127.0.0.1:27017/rupbari?authSource=admin"
-  );
+  await mongoose.connect(process.env.MONGO_URI);
   console.log("database connected");
 }
 
