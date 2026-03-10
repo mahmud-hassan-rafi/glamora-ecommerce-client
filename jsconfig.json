@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@context/*": ["context/*"],
+      "@assets/*": ["assets/*"],
+      "@layouts/*": ["layouts/*"],
+      "@stores/*": ["stores/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"],
+      "@features/*": ["features/*"],
+      "@lib/*": ["lib/*"],
+      "@hooks": ["hook/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
