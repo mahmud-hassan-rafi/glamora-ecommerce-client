@@ -1,26 +1,43 @@
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Wishlist from "./pages/Wishlist";
-import Cart from "./pages/Cart";
-import ManageAccount from "./pages/ManageAccount";
+import Login from "@features/auth/pages/Login";
+import Register from "@features/auth/pages/Register";
+import CustomerDashboard from "@features/auth/pages/CustomerDashBoard";
+import ProductDetail, { ProductDetailLoader } from "@pages/ProductDetails";
+import Cart from "@features/cart/page/Cart";
+import NotFoundPage from "@pages/NotFound";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "/home", element: <Home /> },
+        { path: "/shop", element: <Shop /> },
+        {
+          path: "/shop/:id",
+          element: <ProductDetail />,
+          loader: ProductDetailLoader,
+        },
+        { path: "/cart", element: <Cart /> },
+        { path: "/wishlist", element: <Wishlist /> },
+        { path: "/contact", element: <Contact /> },
+        { path: "/login", element: <Login /> },
+        { path: "/register", element: <Register /> },
+        { path: "/me", element: <CustomerDashboard /> },
+      ],
+    },
+    { path: "/*", element: <NotFoundPage /> },
+  ]);
+
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index={true} element={<Home />} />
-        <Route path={"/home"} element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/:id" element={<Shop />} />
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/me" element={<ManageAccount />} />
-      </Route>
-    </Routes>
+    <RouterProvider router={router} fallbackElement={<div>Loading...</div>} />
   );
 }
 

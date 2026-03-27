@@ -4,16 +4,18 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AppContextProvider } from "./context/AppContext";
-import { TooltipProvider } from "@components/ui/tooltip";
+import { TooltipProvider } from "@components/ui/shadcn/tooltip";
+import { Provider } from "react-redux";
+import { store } from "@stores/store";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <Provider store={store}>
       <AppContextProvider>
         <TooltipProvider>
           <App />
         </TooltipProvider>
       </AppContextProvider>
-    </BrowserRouter>
+    </Provider>
   </StrictMode>,
 );
