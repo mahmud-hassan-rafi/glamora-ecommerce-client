@@ -14,6 +14,13 @@ createRoot(document.getElementById("root")).render(
       <AppContextProvider>
         <TooltipProvider>
           <App />
+          {window.addEventListener("load", () => {
+            const preloader = document.getElementById("preloader");
+
+            if (preloader) {
+              preloader.style.display = "none";
+            }
+          })}
         </TooltipProvider>
       </AppContextProvider>
     </Provider>
