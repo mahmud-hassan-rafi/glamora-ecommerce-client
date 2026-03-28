@@ -4,9 +4,24 @@ import Searchbox from "./Searchbox";
 import MenuTab from "./MenuTab";
 import MenuNavList from "./MenuNavList";
 import CategoriesNavList from "./CategoriesNavList";
+import { motion } from "framer-motion";
+
+const overlayVariants = {
+  open: { opacity: 1 },
+  closed: { opacity: 0 },
+};
+
+const sidebarVariants = {
+  closed: {
+    x: -300,
+  },
+  open: {
+    x: 0,
+  },
+};
 
 const Sidebar = () => {
-  const { setIsOpenSidebar } = useAppContext();
+  const { isOpenSidebar, setIsOpenSidebar } = useAppContext();
 
   const availableTab = {
     MENU: "menu",
@@ -22,12 +37,20 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div
-      className="absolute top-0 bg-black/10 h-screen w-full z-999"
+    <motion.div
+      variants={overlayVariants}
+      initial="closed"
+      animate={isOpenSidebar ? "open" : "closed"}
+      className="absolute top-0 bg-black/15 h-screen w-full z-999"
       onClick={() => setIsOpenSidebar(false)}
     >
-      <div
-        className="w-75 h-full bg-white transition-transform py-6"
+      <motion.div
+        variants={sidebarVariants}
+        initial="closed"
+        animate={isOpenSidebar ? "open" : "closed"}
+        exit={"closed"}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className="w-75 h-full bg-white py-6"
         onClick={(event) => event.stopPropagation()}
       >
         <Searchbox />
@@ -38,8 +61,8 @@ const Sidebar = () => {
         />
         {selectedTab === availableTab.MENU && <MenuNavList />}
         {selectedTab === availableTab.CATEGORIES && <CategoriesNavList />}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

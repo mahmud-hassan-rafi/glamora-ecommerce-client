@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "@components/common/sidebar/Sidebar";
 import BottomNavMenu from "@components/common/bottomNavMenu/BottomNavMenu";
 import ScrollToTop from "@components/common/ScrollToTop";
+import { AnimatePresence } from "framer-motion";
 
 const MainLayout = () => {
   const { isOpenSidebar } = useAppContext();
@@ -17,7 +18,8 @@ const MainLayout = () => {
         <Outlet />
       </main>
       <BottomNavMenu />
-      {isOpenSidebar && <Sidebar />}
+
+      <AnimatePresence>{isOpenSidebar && <Sidebar />}</AnimatePresence>
     </div>
   );
 };
