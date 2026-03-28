@@ -1,4 +1,5 @@
 import Products from "@components/ui/customer/shop/product/Products";
+import ProductSkeleton from "@components/ui/customer/shop/product/ProductSkeleton";
 import SidebarFilter from "@components/ui/customer/shop/sidebarFilter/SidebarFilter";
 import SortingDropdown from "@components/ui/customer/shop/SortingDropdown";
 import React, { useEffect, useState } from "react";
@@ -11,7 +12,11 @@ const Shop = () => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const res = await fetch("https://dummyjson.com/products?limit=10");
+      const res = await fetch("https://dummyjson.com/products?limit=24");
+      if (!res.ok) {
+        setProducts((prev) => [...prev]);
+        return;
+      }
       const data = await res.json();
       setLoading(false);
       setProducts(data.products);
@@ -20,7 +25,7 @@ const Shop = () => {
     getProducts();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <ProductSkeleton />;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
@@ -38,7 +43,11 @@ const Shop = () => {
         <div className="flex-1">
           {/* Product Grid */}
           <div className="flex gap-2">
-            <Products products={products} />
+            {products.length > 0 ? (
+              <Products products={products} />
+            ) : (
+              <p>No Product Found</p>
+            )}
           </div>
 
           {/* Pagination */}
