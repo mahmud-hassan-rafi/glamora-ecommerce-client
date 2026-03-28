@@ -2,11 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>glaroma-ecommerce</title>
+    <title>Glaroma | Pure Glow, Pure Aroma.</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
+
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background-color: white;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        font-family: "Outfit";
+      }
+
+      #preloader img {
+        width: 60px;
+        height: 60px;
+      }
+    </style>
   </head>
   <body>
+    <div id="preloader">
+      <img src="/logo.png" alt="logo" />
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
