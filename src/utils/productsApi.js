@@ -1,12 +1,13 @@
-import { api } from "@services/api";
+import { api } from "@services/api.js";
 
 export const productApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: (data) => ({
-        url: `/products?limit=${data.limit}&skip=${data.prevPage * data.limit}`,
-        method: "GET",
-      }),
+      query: (params = { limit: 8, prevPage: 0 }) => {
+        const skip = params.prevPage * params.limit;
+        const url = `/products?limit=${params.limit}&skip=${skip}`;
+        return url;
+      },
     }),
   }),
 });

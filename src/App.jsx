@@ -24,6 +24,7 @@ function App() {
           path: "/shop/:id",
           element: <ProductDetail />,
           loader: ProductDetailLoader,
+          errorElement: <div className="py-4">No product data</div>,
         },
         { path: "/cart", element: <Cart /> },
         { path: "/wishlist", element: <Wishlist /> },

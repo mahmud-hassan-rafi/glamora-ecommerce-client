@@ -1,8 +1,8 @@
+import React from "react";
 import CategoriesWithPictures from "@components/ui/customer/home/categoriesWithPictures/CategoriesWithPictures";
 import Hero from "@components/ui/customer/home/heroSection/Hero";
-import TrandingProducts from "@components/ui/customer/home/trandingProducts/TrandingProducts";
 import TrustBadges from "@components/ui/customer/home/trustBadges/TrustBadges";
-import React from "react";
+import TrandingProducts from "@components/ui/customer/home/trandingProducts/TrandingProducts";
 
 const Home = () => {
   return (

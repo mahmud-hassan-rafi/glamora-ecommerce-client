@@ -1,5 +1,5 @@
 import Products from "@components/ui/customer/shop/product/Products";
-import ProductSkeleton from "@components/ui/customer/shop/product/ProductSkeleton";
+import ShopPageSkeleton from "@components/ui/customer/shop/ShopPageSkeleton";
 import SidebarFilter from "@components/ui/customer/shop/sidebarFilter/SidebarFilter";
 import SortingDropdown from "@components/ui/customer/shop/SortingDropdown";
 import React, { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ const Shop = () => {
     getProducts();
   }, []);
 
-  if (loading) return <ProductSkeleton />;
+  if (loading) return <ShopPageSkeleton />;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
