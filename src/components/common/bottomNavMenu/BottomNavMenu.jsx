@@ -27,7 +27,7 @@ const icons = [
   {
     id: 4,
     icon: LuUserRound,
-    title: "My Account",
+    title: "Account",
     navigate: "/me",
   },
 ];
