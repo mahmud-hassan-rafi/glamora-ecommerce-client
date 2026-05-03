@@ -1,21 +1,21 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { motion } from "framer-motion";
 import { useGetProductsQuery } from "@utils/productsApi.js";
 import ProductCard from "../../shop/product/ProductCard";
 import ProductsSkeleton from "../../shop/product/ProductsSkeleton";
+import { useNavigate } from "react-router-dom";
 
-const TrandingProducts = () => {
+const TrendingProducts = () => {
   const { data, isLoading, isFetching } = useGetProductsQuery({
     limit: 8,
-    prevPage: 4,
+    prevPage: 0,
   });
+
+  const navigate = useNavigate();
 
   return (
     <section className="w-full">
-      <h2 className="text-2xl md:text-3xl font-semibold text-left mb-4">
-        Trending Products
-      </h2>
-
       {isLoading || isFetching ? (
         <ProductsSkeleton length={8} />
       ) : (
@@ -31,7 +31,8 @@ const TrandingProducts = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-white/70 text-black rounded shadow px-4 py-2 cursor-pointer"
+              className="bg-emerald-950/80 text-white font-medium rounded shadow px-5 py-2 mt-2 cursor-pointer"
+              onClick={() => navigate("/trending-products")}
             >
               Load more
             </motion.button>
@@ -42,4 +43,4 @@ const TrandingProducts = () => {
   );
 };
 
-export default TrandingProducts;
+export default TrendingProducts;
