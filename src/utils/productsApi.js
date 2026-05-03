@@ -12,4 +12,4 @@ export const productApi = api.injectEndpoints({
   }),
 });
 
-export const { useLazyGetProductsQuery, useGetProductsQuery } = productApi;
+export const { useGetProductsQuery } = productApi;

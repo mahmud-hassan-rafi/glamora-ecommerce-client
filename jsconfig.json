@@ -15,7 +15,7 @@
       "@utils/*": ["utils/*"],
       "@features/*": ["features/*"],
       "@lib/*": ["lib/*"],
-      "@hooks": ["hook/*"]
+      "@hooks/*": ["hook/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

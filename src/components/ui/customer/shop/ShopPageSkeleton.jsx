@@ -54,7 +54,7 @@ const ShopPageSkeleton = () => {
       </div>
 
       {/* Products section */}
-      <div className="w-3/4">
+      <div className="w-full md:w-3/4">
         <ProductsSkeleton length={10} />
       </div>
     </div>

@@ -25,6 +25,7 @@ const CartContents = ({ cartItems }) => {
           >
             <div className="flex items-center gap-4">
               <img
+                loading="lazy"
                 src={item.thumbnail}
                 className="size-25 sm:size-20 rounded"
               />

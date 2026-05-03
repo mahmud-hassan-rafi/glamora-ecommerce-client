@@ -3,7 +3,7 @@ import "../styles/ProductDetails.css";
 import { useLoaderData } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { FaHeart } from "react-icons/fa";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ADD_TO_CART } from "@features/cart/cartSlice";
 
 // import Reviews from "../components/review/Reviews";
@@ -11,13 +11,12 @@ import { ADD_TO_CART } from "@features/cart/cartSlice";
 
 const ProductDetail = () => {
   const product = useLoaderData();
-  const dispatch = useDispatch();
 
-  const location = useLocation();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(location.state?.from || "/shop");
+    navigate(-1);
   };
 
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
@@ -56,7 +55,7 @@ const ProductDetail = () => {
           onClick={handleBack}
           className="text-sm text-gray-500 hover:text-black mb-2"
         >
-          <span className="mb-4">←</span> Back to shop
+          <span className="mb-4">←</span> Back
         </button>
 
         {/* BREADCRUMB */}
@@ -196,10 +195,6 @@ export const ProductDetailLoader = async ({ params }) => {
   const { id } = params;
 
   const res = await fetch(`https://dummyjson.com/products/${id}`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch product");
-  }
 
   return res.json();
 };
