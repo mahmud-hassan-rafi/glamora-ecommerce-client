@@ -26,6 +26,7 @@ const UpperRow = () => {
       {/* logo */}
       <div className="w-1/2 sm:w-1/3 md:w-1/5 max-w-62.5 h-full flex justify-center items-center">
         <img
+          loading="lazy"
           src={logo}
           alt="logo"
           className=" h-full w-full object-cover object-center"

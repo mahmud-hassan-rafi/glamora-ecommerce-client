@@ -1,5 +1,4 @@
 import React from "react";
-import Category from "./Category";
 import { assets } from "@assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -34,11 +33,26 @@ const categories = [
     name: "FRAGRANCE",
     image: assets.fragrance_category,
   },
+  {
+    id: 6,
+    name: "BATH & SHOWER",
+    image: assets.hair_care_category,
+  },
+  {
+    id: 7,
+    name: "COSMETICS",
+    image: assets.makeup_category,
+  },
+  {
+    id: 8,
+    name: "BRUSHES",
+    image: assets.fragrance_category,
+  },
 ];
 
 const CategoriesWithPictures = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">
           Shop by Category
