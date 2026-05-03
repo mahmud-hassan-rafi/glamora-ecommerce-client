@@ -17,6 +17,7 @@ export default defineConfig({
       "@features": "/src/features",
       "@services": "/src/services",
       "@lib": "/src/lib",
+      "@hooks": "/src/hooks",
     },
   },
 });
