@@ -1,7 +1,7 @@
 import { useAppContext } from "@context/AppContext";
 import Navbar from "@components/common/navbar/Navbar";
 import React from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, ScrollRestoration, useNavigation } from "react-router-dom";
 import Sidebar from "@components/common/sidebar/Sidebar";
 import BottomNavMenu from "@components/common/bottomNavMenu/BottomNavMenu";
 import ScrollToTop from "@components/common/ScrollToTop";
@@ -18,6 +18,7 @@ const MainLayout = () => {
       <main className="w-full h-[calc(100vh-120px)] lg:h-[calc(100vh-100px)] overflow-y-auto bg-gray-400/15 px-4 md:px-8 xl:px-16">
         <ScrollToTop />
         {navigation.state === "loading" ? <LoadingSpinner /> : <Outlet />}
+        <ScrollRestoration />
       </main>
       <BottomNavMenu />
 
