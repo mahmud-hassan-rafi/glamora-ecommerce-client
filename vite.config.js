@@ -18,6 +18,8 @@ export default defineConfig({
       "@services": "/src/services",
       "@lib": "/src/lib",
       "@hooks": "/src/hooks",
+      "@routes": "/src/routes",
+      "@constants": "/src/constants",
     },
   },
 });
