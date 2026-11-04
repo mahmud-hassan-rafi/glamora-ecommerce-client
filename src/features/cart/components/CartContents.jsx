@@ -8,6 +8,7 @@ import {
   REMOVE_FROM_CART,
 } from "../cartSlice";
 import { useAppContext } from "@context/AppContext";
+import { Link } from "react-router-dom";
 
 const CartContents = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -137,9 +138,12 @@ const CartContents = ({ cartItems }) => {
           <span className="text-black/95">${subtotalPrice}</span>
         </div>
 
-        <button className="w-full mt-6 bg-black text-white py-3 rounded-xl hover:bg-black/90 cursor-pointer">
+        <Link
+          to={"/checkout"}
+          className="inline-block text-center w-full mt-6 bg-black text-white py-3 rounded-xl hover:bg-black/90 cursor-pointer"
+        >
           Proceed to Checkout
-        </button>
+        </Link>
       </div>
     </div>
   );

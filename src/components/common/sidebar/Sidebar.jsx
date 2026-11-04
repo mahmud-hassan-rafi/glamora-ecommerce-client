@@ -41,7 +41,7 @@ const Sidebar = () => {
       variants={overlayVariants}
       initial="closed"
       animate={isOpenSidebar ? "open" : "closed"}
-      className="absolute top-0 bg-black/15 h-screen w-full z-999"
+      className="fixed top-0 bg-black/15 h-screen w-full z-9999"
       onClick={() => setIsOpenSidebar(false)}
     >
       <motion.div

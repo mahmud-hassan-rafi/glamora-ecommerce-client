@@ -1,6 +1,6 @@
 export default function SidebarFilter() {
   return (
-    <div className="hidden md:flex flex-col md:w-64 p-4 border rounded-lg mb-6 sm:mb-0">
+    <div className="h-[calc(100vh-100px)] overflow-y-auto scrollbar-none hidden md:flex flex-col md:w-64 p-4 border rounded-lg mb-6 sm:mb-0">
       <h2 className="font-semibold mb-3">Filters</h2>
 
       {/* Category */}

@@ -2,40 +2,27 @@ import Products from "@components/ui/customer/shop/product/Products";
 import ShopPageSkeleton from "@components/ui/customer/shop/ShopPageSkeleton";
 import SidebarFilter from "@components/ui/customer/shop/sidebarFilter/SidebarFilter";
 import SortingDropdown from "@components/ui/customer/shop/SortingDropdown";
-import React, { useEffect, useState } from "react";
+import { useGetProductsQuery } from "@utils/productsApi";
+import React, { useState } from "react";
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState("latest");
+  const { data, isLoading } = useGetProductsQuery({
+    page: 1,
+    limit: 16,
+  });
 
-  useEffect(() => {
-    const getProducts = async () => {
-      setLoading(true);
-      const res = await fetch("https://dummyjson.com/products?limit=24");
-      if (!res.ok) {
-        setProducts((prev) => [...prev]);
-        return;
-      }
-      const data = await res.json();
-      setLoading(false);
-      setProducts(data.products);
-    };
-
-    getProducts();
-  }, []);
-
-  if (loading) return <ShopPageSkeleton />;
+  if (isLoading) return <ShopPageSkeleton />;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <section className="relative max-w-7xl mx-auto px-6 sm:px-8 md:px-12 xl:px-16 py-10 ">
       {/* Sorting */}
       <div className="flex justify-end mb-4">
         <SortingDropdown value={sort} onChange={setSort} />
       </div>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Sidebar Filter */}
-        <div className="hidden md:flex lg:w-64 mt-4">
+        <div className="sticky top-25 hidden md:flex lg:w-64 h-screen overflow-hidden mt-4">
           <SidebarFilter />
         </div>
 
@@ -43,8 +30,8 @@ const Shop = () => {
         <div className="flex-1">
           {/* Product Grid */}
           <div className="flex gap-2">
-            {products.length > 0 ? (
-              <Products products={products} />
+            {data?.products?.length > 0 ? (
+              <Products products={data?.products} />
             ) : (
               <p>No Product Found</p>
             )}
@@ -63,7 +50,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

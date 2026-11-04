@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-import CategoriesWithPictures from "@components/ui/customer/home/categoriesWithPictures/CategoriesWithPictures";
 import Hero from "@components/ui/customer/home/heroSection/Hero";
 import TrustBadges from "@components/ui/customer/home/trustBadges/TrustBadges";
-import TrandingProducts from "@components/ui/customer/home/featuredProducts/TrandingProducts";
+// import TrandingProducts from "@components/ui/customer/home/featuredProducts/TrandingProducts";
 import ProductsSkeleton from "@components/ui/customer/shop/product/ProductsSkeleton";
 import FeaturedProducts from "@components/ui/customer/home/featuredProducts/FeaturedProducts";
 import FlashSales from "@components/ui/customer/home/flashSales/FlashSales";
+// import FeaturedProducts from "./Test";
+import TestimonialSection from "@components/ui/customer/home/testimonial/Testimonial";
+import ShopByCategorySection from "@components/ui/customer/home/shopByCategory/ShopByCategorySection";
+import ShoppingHighlightsSection from "@components/ui/customer/home/shoppingHighlightsSection/ShoppingHighlightsSection";
 
 const Home = () => {
   const [visible, setVisible] = React.useState(false);
@@ -35,16 +38,18 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full h-full space-y-10">
+    <section className="w-full h-full space-y-10 px-6 sm:px-8 md:px-12 xl:px-16">
       <Hero />
       <TrustBadges />
-      <CategoriesWithPictures />
+      <ShopByCategorySection />
       <div ref={trandingProductsRef}>
         {visible ? <FeaturedProducts /> : <ProductsSkeleton length={8} />}
       </div>
       <FlashSales />
+      <TestimonialSection />
+      <ShoppingHighlightsSection />
       <div className="h-full w-full"></div>
-    </div>
+    </section>
   );
 };
 
