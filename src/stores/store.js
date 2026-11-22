@@ -1,10 +1,12 @@
 import cartReducer from "@features/cart/cartSlice.js";
+import authReducer from "@features/auth/authSlice.js";
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "@services/api.js";
 
 export const store = configureStore({
   name: "GlaromaStore",
   reducer: {
+    auth: authReducer,
     cart: cartReducer,
     [api.reducerPath]: api.reducer,
   },

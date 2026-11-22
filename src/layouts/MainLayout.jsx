@@ -7,21 +7,25 @@ import BottomNavMenu from "@components/common/bottomNavMenu/BottomNavMenu";
 import ScrollToTop from "@components/common/ScrollToTop";
 import { AnimatePresence } from "framer-motion";
 import LoadingSpinner from "@components/common/LoadingSpinner";
+import Footer from "@components/common/footer/Footer";
 
 const MainLayout = () => {
   const { isOpenSidebar } = useAppContext();
   const navigation = useNavigation();
 
   return (
-    <div className="min-h-screen max-h-screen grid grid-rows-[64px_1fr_60px] lg:grid-rows-[100px_1fr] w-full overflow-hidden">
+    <div className="relative w-full flex flex-col">
       <Navbar />
-      <main className="w-full h-[calc(100vh-120px)] lg:h-[calc(100vh-100px)] overflow-y-auto bg-gray-400/15 px-4 md:px-8 xl:px-16">
-        <ScrollToTop />
+      <main
+        id="main"
+        className="min-h-screen h-auto w-full  bg-gray-100" // px-6 sm:px-8 md:px-12 xl:px-16
+      >
         {navigation.state === "loading" ? <LoadingSpinner /> : <Outlet />}
-        <ScrollRestoration />
       </main>
+      <ScrollRestoration />
+      <Footer />
       <BottomNavMenu />
-
+      <ScrollToTop />
       <AnimatePresence>{isOpenSidebar && <Sidebar />}</AnimatePresence>
     </div>
   );

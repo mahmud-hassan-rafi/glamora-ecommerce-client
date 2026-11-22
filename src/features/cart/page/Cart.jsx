@@ -10,7 +10,7 @@ const Cart = () => {
   console.log(cartItems);
 
   return (
-    <div className="max-w-6xl mx-auto py-4 flex flex-col gap-4">
+    <div className="max-w-6xl mx-auto py-4 flex flex-col gap-4 px-6 sm:px-8 md:px-12 xl:px-16">
       <h2 className="text-[clamp(24px,2vw+0.8rem,36px)] text-center font-semibold">
         Shopping Cart
       </h2>

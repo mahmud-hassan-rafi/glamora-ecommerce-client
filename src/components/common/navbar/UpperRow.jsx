@@ -10,8 +10,10 @@ import { useSelector } from "react-redux";
 const UpperRow = () => {
   const navigate = useNavigate();
   const { setIsOpenSidebar, subtotal } = useAppContext();
+  const { cartIconRef } = useAppContext();
 
   const cartItems = useSelector((state) => state.cart);
+  const auth = useSelector((state) => state.auth);
 
   return (
     <div className="flex items-center justify-between w-full h-full sm:pt-1 lg:h-[55%]">
@@ -39,7 +41,7 @@ const UpperRow = () => {
         <input
           type="search"
           name=""
-          className="w-full px-5 md:px-8 py-2 outline-0 rounded-full border border-cyan-900/60"
+          className="w-full px-5 md:px-8 py-2 outline-0 rounded-full border-2 border-cyan-900/60"
           id="search"
           placeholder="Search for products"
         />
@@ -48,19 +50,34 @@ const UpperRow = () => {
       {/* wishlist | user | cart */}
       <div className="hidden w-1/5 h-full lg:flex items-center ">
         <ul className="flex items-center gap-6 w-full m-0 p-0 list-none justify-end">
+          {/* auth */}
+          <li className="relative">
+            {auth.isAuthenticated ? (
+              <Link to={"/account"}>
+                <img
+                  src="./avatar/male-user.jpg"
+                  alt="user-icon"
+                  className="size-9 rounded-full object-cover object-center"
+                />
+              </Link>
+            ) : (
+              <Link to={"/login"}>
+                <LuUserRound className="text-2xl" />
+              </Link>
+            )}
+          </li>
+
+          {/* wishlist */}
           <li className="relative">
             <Link to={"/wishlist"}>
               <IoMdHeartEmpty className="text-2xl" />
             </Link>
           </li>
-          <li className="relative">
-            <Link to={"/login"}>
-              <LuUserRound className="text-2xl" />
-            </Link>
-          </li>
+
+          {/* cart */}
           <li>
             <Link to={"/cart"} className="flex items-center text-base">
-              <span className="relative p-2">
+              <span className="relative p-2" ref={cartIconRef}>
                 <FiShoppingCart className="text-2xl" />
                 <span className="absolute text-[11px] text-white top-1 right-0 flex justify-center items-center size-4.5 rounded-full bg-red-500 font-semibold">
                   {cartItems?.length || 0}

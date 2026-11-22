@@ -11,12 +11,12 @@ const cartSlice = createSlice({
   reducers: {
     ADD_TO_CART: (state, action) => {
       const isProductExists = state.some(
-        (product) => product.id === action.payload.id,
+        (product) => product._id === action.payload._id,
       );
 
       if (isProductExists) {
         return state.map((product) =>
-          product.id === action.payload.id
+          product._id === action.payload._id
             ? { ...product, quantity: product.quantity + 1 }
             : product,
         );
@@ -24,7 +24,7 @@ const cartSlice = createSlice({
         return [
           ...state,
           {
-            id: action.payload.id,
+            _id: action.payload._id,
             title: action.payload?.title,
             price: Number(discountedPrice(action.payload)),
             thumbnail: action.payload?.thumbnail,
@@ -38,20 +38,20 @@ const cartSlice = createSlice({
       console.log(action.payload);
 
       return state.map((product) => {
-        return product.id === action.payload.id
+        return product._id === action.payload._id
           ? { ...product, quantity: product.quantity + 1 }
           : product;
       });
     },
     DECREASE_QUANTITY: (state, action) => {
       return state.map((product) => {
-        return product.id === action.payload.id && product.quantity > 1
+        return product._id === action.payload._id && product.quantity > 1
           ? { ...product, quantity: product.quantity - 1 }
           : product;
       });
     },
     REMOVE_FROM_CART: (state, action) => {
-      return state.filter((product) => product.id !== action.payload.id);
+      return state.filter((product) => product._id !== action.payload._id);
     },
   },
 });

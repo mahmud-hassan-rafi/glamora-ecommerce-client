@@ -9,7 +9,7 @@ const Navbar = () => {
   const isLinkActive = (isActive) => (isActive ? "text-cyan-900" : "");
 
   return (
-    <nav className="h-16 lg:h-25 sticky top-0 bg-white z-100 border-b border-b-gray-300 w-full">
+    <nav className="h-16 lg:h-25 sticky top-0 bg-white z-9999 border-b border-b-gray-300 w-full">
       <div className="flex flex-col items-center px-5 md:px-24 lg:px-12 w-full h-full bg-blue-50/10">
         <UpperRow />
 

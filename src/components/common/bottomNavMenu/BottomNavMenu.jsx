@@ -34,7 +34,7 @@ const icons = [
 
 const BottomNavMenu = () => {
   return (
-    <nav className="lg:hidden sticky bottom-0  h-15 w-full bg-white text-[22px] border-t border-t-gray-300 shadow-sidebar-border z-99">
+    <nav className="lg:hidden sticky bottom-0  h-15 w-full bg-white text-[22px] border-t border-t-gray-300 shadow-sidebar-border z-9999">
       {/* mobile & tablet view */}
       <div className="size-full bg-blue-50/10 flex items-center gap-3 px-2">
         {icons.map((Icon) => {

@@ -6,46 +6,46 @@ const menus = [
   {
     id: 1,
     name: "Skin Care",
-    navigate: "/shop/skin-care",
+    navigate: "/categories/skin-care",
   },
   {
     id: 2,
-    navigate: "/shop/makeup",
+    navigate: "/categories/makeup",
     name: "Makeup",
   },
   {
     id: 3,
-    navigate: "/shop/body-care",
+    navigate: "/categories/body-care",
     name: "Body Care",
   },
   {
     id: 4,
-    navigate: "/shop/hair-care",
+    navigate: "/categories/hair-care",
     name: "Hair Care",
   },
   {
     id: 5,
-    navigate: "/shop/fragrance",
+    navigate: "/categories/fragrance",
     name: "Fragrance",
   },
   {
     id: 6,
-    navigate: "/shop/baby-care",
+    navigate: "/categories/baby-care",
     name: "Baby Care",
   },
   {
     id: 7,
-    navigate: "/shop/man-care",
+    navigate: "/categories/man-care",
     name: "Man Care",
   },
   {
     id: 8,
-    navigate: "/shop/daily-needs",
+    navigate: "/categories/daily-needs",
     name: "Daily Needs",
   },
 ];
 
-const Categories = ({ className }) => {
+const HeroSectionCategories = ({ className }) => {
   const { setIsOpenSidebar } = useAppContext();
 
   return (
@@ -66,4 +66,4 @@ const Categories = ({ className }) => {
   );
 };
 
-export default Categories;
+export default HeroSectionCategories;
